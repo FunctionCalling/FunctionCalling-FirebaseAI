@@ -12,7 +12,7 @@ import Foundation
 typealias FunctionCallingTool = FunctionCalling.Tool
 
 extension ToolContainer {
-    var firebaseVertexAITools: [FirebaseVertexAI.Tool] {
+    public var firebaseVertexAITools: [FirebaseVertexAI.Tool] {
         get throws {
             let data = allTools.data(using: .utf8)!
             let functionCallingTools = try JSONDecoder().decode([FunctionCallingTool].self, from: data)
