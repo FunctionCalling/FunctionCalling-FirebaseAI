@@ -48,7 +48,7 @@ let package = Package(
         )
     ],
     dependencies: [
-        .package(url: "https://github.com/fumito-ito/FunctionCalling-FirebaseVertexAI", from: "0.1.0")
+        .package(url: "https://github.com/fumito-ito/FunctionCalling-FirebaseVertexAI", from: "0.0.1")
     ]
 )
 ```
