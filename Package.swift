@@ -16,7 +16,7 @@ let package = Package(
             targets: ["FunctionCalling-FirebaseVertexAI"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/fumito-ito/FunctionCalling", from: "0.4.0"),
+        .package(url: "https://github.com/fumito-ito/FunctionCalling", from: "0.5.0"),
         .package(url: "https://github.com/firebase/firebase-ios-sdk.git", from: "11.4.0")
     ],
     targets: [
