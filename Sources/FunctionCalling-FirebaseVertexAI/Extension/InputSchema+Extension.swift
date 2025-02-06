@@ -10,34 +10,68 @@ import FirebaseVertexAI
 
 extension FunctionCalling.InputSchema {
     var toSchema: FirebaseVertexAI.Schema {
-        Schema(
-            type: type.toDataType,
-            format: format,
-            description: description,
-            nullable: nullable,
-            enumValues: enumValues,
-            items: items?.toSchema,
-            properties: properties?.mapValues { $0.toSchema },
-            requiredProperties: requiredProperties
-        )
+        switch type {
+        case .string:
+            return .string(
+                description: description,
+                nullable: nullable ?? false,
+                format: format.toStringFormat
+            )
+        case .number:
+            return .double(
+                description: description,
+                nullable: nullable ?? false
+            )
+        case .integer:
+            return .integer(
+                description: description,
+                nullable: nullable ?? false,
+                format: format.toIntegerFormat
+            )
+        case .boolean:
+            return .boolean(
+                description: description,
+                nullable: nullable ?? false
+            )
+        case .array:
+            guard let items else {
+                fatalError("array is set but items are not found")
+            }
+
+            return .array(
+                items: items.toSchema,
+                description: description,
+                nullable: nullable ?? false
+            )
+        case .object:
+            guard let properties else {
+                fatalError("object is set but properties are note found")
+            }
+
+            return .object(
+                properties: properties.mapValues { $0.toSchema },
+                optionalProperties: [],
+                description: description,
+                nullable: nullable ?? false
+            )
+        }
     }
 }
 
-extension FunctionCalling.InputSchema.DataType {
-    var toDataType: FirebaseVertexAI.DataType {
-        switch self {
-        case .string:
-            return .string
-        case .number:
-            return .number
-        case .integer:
-            return .integer
-        case .boolean:
-            return .boolean
-        case .array:
-            return .array
-        case .object:
-            return .object
+extension Optional<String> {
+    var toStringFormat: FirebaseVertexAI.Schema.StringFormat? {
+        guard let format = self else {
+            return nil
         }
+
+        return .custom(format)
+    }
+
+    var toIntegerFormat: FirebaseVertexAI.Schema.IntegerFormat? {
+        guard let format = self else {
+            return nil
+        }
+
+        return .custom(format)
     }
 }
