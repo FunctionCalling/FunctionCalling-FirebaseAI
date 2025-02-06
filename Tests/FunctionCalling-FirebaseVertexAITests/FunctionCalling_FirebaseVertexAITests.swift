@@ -2,6 +2,7 @@ import XCTest
 @testable import FunctionCalling_FirebaseVertexAI
 import FunctionCalling
 
+// swiftlint:disable:next type_name
 final class FunctionCalling_FirebaseVertexAITests: XCTestCase {
     @FunctionCalling(service: .claude)
         struct FunctionContainer {
@@ -29,6 +30,7 @@ final class FunctionCalling_FirebaseVertexAITests: XCTestCase {
 
             let getWeather = try XCTUnwrap(functions.first)
             XCTAssertEqual(getWeather.getName(), "getWeather")
+            // swiftlint:disable:next line_length
             XCTAssertEqual(getWeather.getDescription(), "Return current weather of location that passed by the argument- Parameter location: location that I want to know how the weather- Returns: string of weather")
 
             let getStock = try XCTUnwrap(functions.last)

@@ -11,12 +11,10 @@ import Foundation
 
 extension ToolContainer {
     public var firebaseVertexAITools: [FirebaseVertexAI.Tool] {
-        get {
-            [
-                FirebaseVertexAI.Tool(
-                    functionDeclarations: allTools?.compactMap { $0.toFunctionDeclaration }
-                )
-            ]
-        }
+        [
+            FirebaseVertexAI.Tool(
+                functionDeclarations: allTools?.compactMap { $0.toFunctionDeclaration }
+            )
+        ]
     }
 }

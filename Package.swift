@@ -13,7 +13,7 @@ let package = Package(
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
             name: "FunctionCalling-FirebaseVertexAI",
-            targets: ["FunctionCalling-FirebaseVertexAI"]),
+            targets: ["FunctionCalling-FirebaseVertexAI"])
     ],
     dependencies: [
         .package(url: "https://github.com/fumito-ito/FunctionCalling", from: "0.5.0"),
@@ -31,6 +31,6 @@ let package = Package(
         ),
         .testTarget(
             name: "FunctionCalling-FirebaseVertexAITests",
-            dependencies: ["FunctionCalling-FirebaseVertexAI"]),
+            dependencies: ["FunctionCalling-FirebaseVertexAI"])
     ]
 )
