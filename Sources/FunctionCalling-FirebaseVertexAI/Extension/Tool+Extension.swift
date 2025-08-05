@@ -6,11 +6,11 @@
 //
 
 import FunctionCalling
-import FirebaseVertexAI
+import FirebaseAI
 
 extension FunctionCalling.Tool {
-    var toFunctionDeclaration: FirebaseVertexAI.FunctionDeclaration {
-        let parameters: [String: FirebaseVertexAI.Schema] = {
+    var toFunctionDeclaration: FunctionDeclaration {
+        let parameters: [String: Schema] = {
             guard let properties = inputSchema.properties else {
                 return [:]
             }
