@@ -26,7 +26,7 @@ let package = Package(
             name: "FunctionCalling-FirebaseVertexAI",
             dependencies: [
                 .product(name: "FunctionCalling", package: "FunctionCalling"),
-                .product(name: "FirebaseVertexAI", package: "firebase-ios-sdk")
+                .product(name: "FirebaseAI", package: "firebase-ios-sdk")
             ]
         ),
         .testTarget(
