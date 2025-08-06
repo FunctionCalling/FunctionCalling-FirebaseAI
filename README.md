@@ -1,14 +1,14 @@
-# FunctionCalling-FirebaseVertexAI
+# FunctionCalling-FirebaseAI
 
-This library simplifies the integration of the [FunctionCalling](https://github.com/fumito-ito/FunctionCalling) macro into [FirebaseVertexAI](https://github.com/firebase/firebase-ios-sdk/tree/main/FirebaseVertexAI). By using this library, you can directly generate `Tool` objects from Swift native functions, which can then be specified as FunctionCalling when invoking VertexAI.
+This library simplifies the integration of the [FunctionCalling](https://github.com/fumito-ito/FunctionCalling) macro into [FirebaseAI](https://github.com/firebase/firebase-ios-sdk/tree/main/FirebaseAI). By using this library, you can directly generate `Tool` objects from Swift native functions, which can then be specified as FunctionCalling when invoking FirebaseAI.
 
 ## Usage
 
 ```swift
 
 import FunctionCalling
-import FunctionCalling_FirebaseVertexAI
-import FirebaseVertexAI
+import FunctionCalling_FirebaseAI
+import FirebaseAI
 
 // MARK: Declare the container and functions for the tools to be called from FunctionCalling.
 
@@ -23,9 +23,9 @@ struct MyFunctionTools {
     }
 }
 
-// MARK: You can directly pass the tools generated from objects to the model in VertexAI.
+// MARK: You can directly pass the tools generated from objects to the model in FirebaseAI.
 
-let model = VertexAI.vertexAI().generativeModel(
+let model = FirebaseAI.firebaseAI().generativeModel(
     modelName: "gemini-1.5-flash",
     tools: MyFunctionTools().firebaseVertexAITools
 )
@@ -43,12 +43,12 @@ let package = Package(
         .target(
             "YouAppModule",
             dependencies: [
-                .product(name: "FunctionCalling-FirebaseVertexAI", package: "FunctionCalling-FirebaseVertexAI")
+                .product(name: "FunctionCalling-FirebaseAI", package: "FunctionCalling-FirebaseAI")
             ]
         )
     ],
     dependencies: [
-        .package(url: "https://github.com/FunctionCalling/FunctionCalling-FirebaseVertexAI", from: "0.1.0")
+        .package(url: "https://github.com/FunctionCalling/FunctionCalling-FirebaseAI", from: "0.1.0")
     ]
 )
 ```

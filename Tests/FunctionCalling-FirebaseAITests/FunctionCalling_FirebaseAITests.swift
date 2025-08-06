@@ -1,9 +1,9 @@
 import XCTest
-@testable import FunctionCalling_FirebaseVertexAI
+@testable import FunctionCalling_FirebaseAI
 import FunctionCalling
 
 // swiftlint:disable:next type_name
-final class FunctionCalling_FirebaseVertexAITests: XCTestCase {
+final class FunctionCalling_FirebaseAITests: XCTestCase {
     @FunctionCalling(service: .claude)
         struct FunctionContainer {
             /// Return current weather of location that passed by the argument
@@ -21,7 +21,7 @@ final class FunctionCalling_FirebaseVertexAITests: XCTestCase {
         }
 
         func testConvertedResults() throws {
-            guard let tool = FunctionContainer().firebaseVertexAITools.first else {
+            guard let tool = FunctionContainer().firebaseAITools.first else {
                 XCTFail("Conainer should contain some functions")
                 return
             }

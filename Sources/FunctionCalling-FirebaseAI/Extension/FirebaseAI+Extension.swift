@@ -1,6 +1,6 @@
 //
 //  FirebaseAI+Extension.swift
-//  FunctionCalling-FirebaseVertexAI
+//  FunctionCalling-FirebaseAI
 //
 //  Created by 伊藤史 on 2025/08/06.
 //
