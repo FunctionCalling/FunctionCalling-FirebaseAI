@@ -17,7 +17,7 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/fumito-ito/FunctionCalling", from: "0.5.0"),
-        .package(url: "https://github.com/firebase/firebase-ios-sdk.git", from: "11.15.0")
+        .package(url: "https://github.com/firebase/firebase-ios-sdk.git", from: "12.1.0")
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
@@ -26,7 +26,7 @@ let package = Package(
             name: "FunctionCalling-FirebaseVertexAI",
             dependencies: [
                 .product(name: "FunctionCalling", package: "FunctionCalling"),
-                .product(name: "FirebaseVertexAI", package: "firebase-ios-sdk")
+                .product(name: "FirebaseAI", package: "firebase-ios-sdk")
             ]
         ),
         .testTarget(

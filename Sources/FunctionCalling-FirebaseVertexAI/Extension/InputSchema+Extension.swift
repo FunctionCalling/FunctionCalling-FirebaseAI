@@ -6,10 +6,10 @@
 //
 
 import FunctionCalling
-import FirebaseVertexAI
+import FirebaseAI
 
 extension FunctionCalling.InputSchema {
-    var toSchema: FirebaseVertexAI.Schema {
+    var toSchema: Schema {
         switch type {
         case .string:
             return .string(
@@ -59,7 +59,7 @@ extension FunctionCalling.InputSchema {
 }
 
 extension Optional<String> {
-    var toStringFormat: FirebaseVertexAI.Schema.StringFormat? {
+    var toStringFormat: Schema.StringFormat? {
         guard let format = self else {
             return nil
         }
@@ -67,7 +67,7 @@ extension Optional<String> {
         return .custom(format)
     }
 
-    var toIntegerFormat: FirebaseVertexAI.Schema.IntegerFormat? {
+    var toIntegerFormat: Schema.IntegerFormat? {
         guard let format = self else {
             return nil
         }

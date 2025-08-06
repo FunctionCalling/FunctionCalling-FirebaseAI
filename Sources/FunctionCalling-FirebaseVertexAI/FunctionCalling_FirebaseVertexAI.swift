@@ -6,15 +6,14 @@
 //
 
 import FunctionCalling
-import FirebaseVertexAI
-import Foundation
+import FirebaseAI
 
 extension ToolContainer {
-    public var firebaseVertexAITools: [FirebaseVertexAI.Tool] {
+    public var firebaseVertexAITools: [FirebaseAITool] {
         guard let declarations = allTools?.compactMap({ $0.toFunctionDeclaration }) else {
             return [.functionDeclarations([])]
         }
 
-        return [FirebaseVertexAI.Tool.functionDeclarations(declarations)]
+        return [FirebaseAITool.functionDeclarations(declarations)]
     }
 }
